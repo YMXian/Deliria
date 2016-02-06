@@ -25,6 +25,9 @@ class DeliriaTests: XCTestCase {
     let result: CGVector = point1 + size1
     XCTAssertEqual(result.x, 3.0)
     XCTAssertEqual(result.y, 3.0)
+    let view = UIView()
+    view.frame.origin.x = 1
+    XCTAssertEqual(view.frame.x, 1)
   }
 
 }
