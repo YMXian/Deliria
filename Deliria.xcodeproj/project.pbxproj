@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		69F5E91E1C664CD000D1D689 /* Deliria.h in Headers */ = {isa = PBXBuildFile; fileRef = 69F5E91D1C664CD000D1D689 /* Deliria.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69F5E9251C664CD000D1D689 /* Deliria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F5E91A1C664CD000D1D689 /* Deliria.framework */; };
-		69F5E92A1C664CD000D1D689 /* DeliriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9291C664CD000D1D689 /* DeliriaTests.swift */; };
+		69F5E92A1C664CD000D1D689 /* Vector2DConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9291C664CD000D1D689 /* Vector2DConvertibleTests.swift */; };
 		69F5E93E1C665C9700D1D689 /* Vector2DConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E93C1C665C9700D1D689 /* Vector2DConvertible.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 		69F5E91D1C664CD000D1D689 /* Deliria.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deliria.h; sourceTree = "<group>"; };
 		69F5E91F1C664CD000D1D689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69F5E9241C664CD000D1D689 /* DeliriaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliriaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		69F5E9291C664CD000D1D689 /* DeliriaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliriaTests.swift; sourceTree = "<group>"; };
+		69F5E9291C664CD000D1D689 /* Vector2DConvertibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2DConvertibleTests.swift; sourceTree = "<group>"; };
 		69F5E92B1C664CD000D1D689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69F5E93C1C665C9700D1D689 /* Vector2DConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2DConvertible.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,7 +83,7 @@
 		69F5E9281C664CD000D1D689 /* DeliriaTests */ = {
 			isa = PBXGroup;
 			children = (
-				69F5E9291C664CD000D1D689 /* DeliriaTests.swift */,
+				69F5E9291C664CD000D1D689 /* Vector2DConvertibleTests.swift */,
 				69F5E92B1C664CD000D1D689 /* Info.plist */,
 			);
 			path = DeliriaTests;
@@ -221,7 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69F5E92A1C664CD000D1D689 /* DeliriaTests.swift in Sources */,
+				69F5E92A1C664CD000D1D689 /* Vector2DConvertibleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
