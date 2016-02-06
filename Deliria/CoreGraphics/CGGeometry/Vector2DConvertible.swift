@@ -64,7 +64,7 @@ extension CGSize:  Vector2DConvertible, ArrayLiteralConvertible {
 
 }
 
-extension CGVector: Vector2DConvertible {
+extension CGVector: Vector2DConvertible, ArrayLiteralConvertible {
 
   public var x: CGFloat {
     get {
