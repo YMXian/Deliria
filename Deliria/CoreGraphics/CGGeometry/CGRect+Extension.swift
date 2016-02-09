@@ -137,13 +137,13 @@ public func +(lhs: CGRect, rhs: CGSize) -> CGRect {
   return CGRect(origin: lhs.origin, size: lhs.size + rhs)
 }
 
+public func +(lhs: CGRect, rhs: CGVector) -> CGRect {
+  return CGRect(origin: lhs.origin + rhs, size: lhs.size)
+}
+
 public func +(lhs: CGRect, rhs: (CGFloat, CGFloat)) -> CGRect {
   let (dx, dy) = rhs
   return lhs + CGVector(dx: dx, dy: dy)
-}
-
-public func +(lhs: CGRect, rhs: CGVector) -> CGRect {
-  return CGRect(origin: lhs.origin + rhs, size: lhs.size)
 }
 
 public func -(lhs: CGRect, rhs: CGSize) -> CGRect {
@@ -152,6 +152,11 @@ public func -(lhs: CGRect, rhs: CGSize) -> CGRect {
 
 public func -(lhs: CGRect, rhs: CGVector) -> CGRect {
   return CGRect(origin: lhs.origin - rhs, size: lhs.size)
+}
+
+public func -(lhs: CGRect, rhs: (CGFloat, CGFloat)) -> CGRect {
+  let (dx, dy) = rhs
+  return lhs - CGVector(dx: dx, dy: dy)
 }
 
 /* CGRect + CGPoint is meaningless, use Vector2DConvertible.vector to convert CGPoint to a CGVector */
