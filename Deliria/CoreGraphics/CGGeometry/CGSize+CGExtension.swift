@@ -1,5 +1,5 @@
 //
-//  CGSize+Extension.swift
+//  CGSize+CGExtension.swift
 //  Deliria
 //
 //  Created by Yanke Guo on 16/2/7.

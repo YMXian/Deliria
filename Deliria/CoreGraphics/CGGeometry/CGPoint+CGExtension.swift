@@ -1,5 +1,5 @@
 //
-//  CGPoint+Extension.swift
+//  CGPoint+CGExtension.swift
 //  Deliria
 //
 //  Created by Yanke Guo on 16/2/7.

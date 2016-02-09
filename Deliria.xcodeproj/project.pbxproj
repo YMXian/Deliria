@@ -11,10 +11,10 @@
 		69F5E9251C664CD000D1D689 /* Deliria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F5E91A1C664CD000D1D689 /* Deliria.framework */; };
 		69F5E92A1C664CD000D1D689 /* Vector2DConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9291C664CD000D1D689 /* Vector2DConvertibleTests.swift */; };
 		69F5E93E1C665C9700D1D689 /* Vector2DConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E93C1C665C9700D1D689 /* Vector2DConvertible.swift */; };
-		69F5E9401C66657E00D1D689 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E93F1C66657E00D1D689 /* CGRect+Extension.swift */; };
-		69F5E9421C6667BC00D1D689 /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9411C6667BC00D1D689 /* CGPoint+Extension.swift */; };
-		69F5E9441C66681400D1D689 /* CGSize+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9431C66681400D1D689 /* CGSize+Extension.swift */; };
-		69F5E9461C66686D00D1D689 /* CGVector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9451C66686D00D1D689 /* CGVector+Extension.swift */; };
+		69F5E9401C66657E00D1D689 /* CGRect+CGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E93F1C66657E00D1D689 /* CGRect+CGExtension.swift */; };
+		69F5E9421C6667BC00D1D689 /* CGPoint+CGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9411C6667BC00D1D689 /* CGPoint+CGExtension.swift */; };
+		69F5E9441C66681400D1D689 /* CGSize+CGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9431C66681400D1D689 /* CGSize+CGExtension.swift */; };
+		69F5E9461C66686D00D1D689 /* CGVector+CGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9451C66686D00D1D689 /* CGVector+CGExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +35,10 @@
 		69F5E9291C664CD000D1D689 /* Vector2DConvertibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2DConvertibleTests.swift; sourceTree = "<group>"; };
 		69F5E92B1C664CD000D1D689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69F5E93C1C665C9700D1D689 /* Vector2DConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2DConvertible.swift; sourceTree = "<group>"; };
-		69F5E93F1C66657E00D1D689 /* CGRect+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
-		69F5E9411C6667BC00D1D689 /* CGPoint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
-		69F5E9431C66681400D1D689 /* CGSize+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Extension.swift"; sourceTree = "<group>"; };
-		69F5E9451C66686D00D1D689 /* CGVector+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extension.swift"; sourceTree = "<group>"; };
+		69F5E93F1C66657E00D1D689 /* CGRect+CGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+CGExtension.swift"; sourceTree = "<group>"; };
+		69F5E9411C6667BC00D1D689 /* CGPoint+CGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+CGExtension.swift"; sourceTree = "<group>"; };
+		69F5E9431C66681400D1D689 /* CGSize+CGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+CGExtension.swift"; sourceTree = "<group>"; };
+		69F5E9451C66686D00D1D689 /* CGVector+CGExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+CGExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				69F5E93C1C665C9700D1D689 /* Vector2DConvertible.swift */,
-				69F5E93F1C66657E00D1D689 /* CGRect+Extension.swift */,
-				69F5E9411C6667BC00D1D689 /* CGPoint+Extension.swift */,
-				69F5E9431C66681400D1D689 /* CGSize+Extension.swift */,
-				69F5E9451C66686D00D1D689 /* CGVector+Extension.swift */,
+				69F5E93F1C66657E00D1D689 /* CGRect+CGExtension.swift */,
+				69F5E9411C6667BC00D1D689 /* CGPoint+CGExtension.swift */,
+				69F5E9431C66681400D1D689 /* CGSize+CGExtension.swift */,
+				69F5E9451C66686D00D1D689 /* CGVector+CGExtension.swift */,
 			);
 			path = CGGeometry;
 			sourceTree = "<group>";
@@ -226,10 +226,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				69F5E93E1C665C9700D1D689 /* Vector2DConvertible.swift in Sources */,
-				69F5E9461C66686D00D1D689 /* CGVector+Extension.swift in Sources */,
-				69F5E9401C66657E00D1D689 /* CGRect+Extension.swift in Sources */,
-				69F5E9441C66681400D1D689 /* CGSize+Extension.swift in Sources */,
-				69F5E9421C6667BC00D1D689 /* CGPoint+Extension.swift in Sources */,
+				69F5E9461C66686D00D1D689 /* CGVector+CGExtension.swift in Sources */,
+				69F5E9401C66657E00D1D689 /* CGRect+CGExtension.swift in Sources */,
+				69F5E9441C66681400D1D689 /* CGSize+CGExtension.swift in Sources */,
+				69F5E9421C6667BC00D1D689 /* CGPoint+CGExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

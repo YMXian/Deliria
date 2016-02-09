@@ -1,5 +1,5 @@
 //
-//  CGVector+Extension.swift
+//  CGVector+CGExtension.swift
 //  Deliria
 //
 //  Created by Yanke Guo on 16/2/7.
