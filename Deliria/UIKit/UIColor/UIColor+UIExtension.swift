@@ -1,5 +1,5 @@
 //
-//  UIColor+UIExtensions.swift
+//  UIColor+UIExtension.swift
 //  Deliria
 //
 //  Created by Yanke Guo on 16/2/9.

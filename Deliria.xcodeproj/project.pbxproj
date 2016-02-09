@@ -11,7 +11,8 @@
 		6946EA641C69E28400AFD8E9 /* CGRect+UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946EA631C69E28400AFD8E9 /* CGRect+UIExtension.swift */; };
 		6946EA671C69E48F00AFD8E9 /* UIColor+HexSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946EA661C69E48F00AFD8E9 /* UIColor+HexSupport.swift */; };
 		6946EA6A1C69EE9600AFD8E9 /* UIImage+Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946EA691C69EE9600AFD8E9 /* UIImage+Generation.swift */; };
-		6946EA6C1C69F0F000AFD8E9 /* UIColor+UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946EA6B1C69F0F000AFD8E9 /* UIColor+UIExtensions.swift */; };
+		6946EA6C1C69F0F000AFD8E9 /* UIColor+UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946EA6B1C69F0F000AFD8E9 /* UIColor+UIExtension.swift */; };
+		6946EA6E1C69FAA600AFD8E9 /* UIImage+Manipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946EA6D1C69FAA600AFD8E9 /* UIImage+Manipulation.swift */; };
 		69F5E91E1C664CD000D1D689 /* Deliria.h in Headers */ = {isa = PBXBuildFile; fileRef = 69F5E91D1C664CD000D1D689 /* Deliria.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69F5E9251C664CD000D1D689 /* Deliria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F5E91A1C664CD000D1D689 /* Deliria.framework */; };
 		69F5E92A1C664CD000D1D689 /* Vector2DConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9291C664CD000D1D689 /* Vector2DConvertibleTests.swift */; };
@@ -37,7 +38,8 @@
 		6946EA631C69E28400AFD8E9 /* CGRect+UIExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+UIExtension.swift"; sourceTree = "<group>"; };
 		6946EA661C69E48F00AFD8E9 /* UIColor+HexSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexSupport.swift"; sourceTree = "<group>"; };
 		6946EA691C69EE9600AFD8E9 /* UIImage+Generation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Generation.swift"; sourceTree = "<group>"; };
-		6946EA6B1C69F0F000AFD8E9 /* UIColor+UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+UIExtensions.swift"; sourceTree = "<group>"; };
+		6946EA6B1C69F0F000AFD8E9 /* UIColor+UIExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+UIExtension.swift"; sourceTree = "<group>"; };
+		6946EA6D1C69FAA600AFD8E9 /* UIImage+Manipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Manipulation.swift"; sourceTree = "<group>"; };
 		69F5E91A1C664CD000D1D689 /* Deliria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deliria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F5E91D1C664CD000D1D689 /* Deliria.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deliria.h; sourceTree = "<group>"; };
 		69F5E91F1C664CD000D1D689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				6946EA661C69E48F00AFD8E9 /* UIColor+HexSupport.swift */,
-				6946EA6B1C69F0F000AFD8E9 /* UIColor+UIExtensions.swift */,
+				6946EA6B1C69F0F000AFD8E9 /* UIColor+UIExtension.swift */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				6946EA691C69EE9600AFD8E9 /* UIImage+Generation.swift */,
+				6946EA6D1C69FAA600AFD8E9 /* UIImage+Manipulation.swift */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -277,7 +280,8 @@
 				6946EA621C69E16800AFD8E9 /* UIOffset+UIExtension.swift in Sources */,
 				6946EA6A1C69EE9600AFD8E9 /* UIImage+Generation.swift in Sources */,
 				69F5E9401C66657E00D1D689 /* CGRect+CGExtension.swift in Sources */,
-				6946EA6C1C69F0F000AFD8E9 /* UIColor+UIExtensions.swift in Sources */,
+				6946EA6C1C69F0F000AFD8E9 /* UIColor+UIExtension.swift in Sources */,
+				6946EA6E1C69FAA600AFD8E9 /* UIImage+Manipulation.swift in Sources */,
 				69F5E9441C66681400D1D689 /* CGSize+CGExtension.swift in Sources */,
 				6946EA671C69E48F00AFD8E9 /* UIColor+HexSupport.swift in Sources */,
 				69F5E9421C6667BC00D1D689 /* CGPoint+CGExtension.swift in Sources */,

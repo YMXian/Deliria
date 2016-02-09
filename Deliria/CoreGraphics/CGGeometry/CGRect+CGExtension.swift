@@ -202,3 +202,28 @@ Apply CGAffineTransform to a CGRect, returns a new CGRect
 public func *(lhs: CGRect, rhs: CGAffineTransform) -> CGRect {
   return CGRectApplyAffineTransform(lhs, rhs)
 }
+
+public func *=(inout lhs: CGRect, rhs: CGAffineTransform) -> CGRect {
+  let result = CGRectApplyAffineTransform(lhs, rhs)
+  lhs.origin = result.origin
+  lhs.size   = result.size
+  return lhs
+}
+
+/**
+ Create a CGRect scaled from original CGRect
+
+ - parameter lhs: CGRect
+ - parameter rhs: CGFloat
+
+ - returns: new CGRect
+ */
+public func *(lhs: CGRect, rhs: CGFloat) -> CGRect {
+  return CGRect(origin: lhs.origin * rhs, size: lhs.size * rhs)
+}
+
+public func *=(inout lhs: CGRect, rhs: CGFloat) -> CGRect {
+  lhs.origin *= rhs
+  lhs.size *= rhs
+  return lhs
+}
