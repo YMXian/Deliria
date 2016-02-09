@@ -13,3 +13,5 @@ FOUNDATION_EXPORT double DeliriaVersionNumber;
 
 //! Project version string for Deliria.
 FOUNDATION_EXPORT const unsigned char DeliriaVersionString[];
+
+#import "Deliria-Swift.h"
