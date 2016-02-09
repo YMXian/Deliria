@@ -57,7 +57,6 @@ extension CGRect {
     }
   }
 
-
   public var topLeft: CGPoint {
     get {
       return self.origin
@@ -130,13 +129,17 @@ extension CGRect {
     }
   }
 
-
 }
 
 //  MARK: - Operator
 
 public func +(lhs: CGRect, rhs: CGSize) -> CGRect {
   return CGRect(origin: lhs.origin, size: lhs.size + rhs)
+}
+
+public func +(lhs: CGRect, rhs: (CGFloat, CGFloat)) -> CGRect {
+  let (dx, dy) = rhs
+  return lhs + CGVector(dx: dx, dy: dy)
 }
 
 public func +(lhs: CGRect, rhs: CGVector) -> CGRect {
@@ -151,8 +154,8 @@ public func -(lhs: CGRect, rhs: CGVector) -> CGRect {
   return CGRect(origin: lhs.origin - rhs, size: lhs.size)
 }
 
+/* CGRect + CGPoint is meaningless, use Vector2DConvertible.vector to convert CGPoint to a CGVector */
+
 public func *(lhs: CGRect, rhs: CGAffineTransform) -> CGRect {
   return CGRectApplyAffineTransform(lhs, rhs)
 }
-
-/* CGRect + CGPoint is meaningless, use Vector2DConvertible.vector to convert CGPoint to a CGVector */
