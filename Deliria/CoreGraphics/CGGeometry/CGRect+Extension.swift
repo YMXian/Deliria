@@ -50,10 +50,10 @@ extension CGRect {
 
   public var center: CGPoint {
     get {
-      return self.origin + CGSizeMake(self.width/2, self.height/2)
+      return self.origin + (self.width / 2, self.height / 2)
     }
     set(value) {
-      self.origin = self.origin + (value - self.center as CGPoint)
+      self.origin += (value - self.center) as CGVector
     }
   }
 
@@ -68,64 +68,64 @@ extension CGRect {
 
   public var topRight: CGPoint {
     get {
-      return self.origin + CGSizeMake(self.width, 0)
+      return self.origin + (self.width, 0)
     }
     set(value) {
-      self.origin = self.origin + (value - self.topRight as CGPoint)
+      self.origin += (value - self.topRight) as CGVector
     }
   }
 
   public var bottomLeft: CGPoint {
     get {
-      return self.origin + CGSizeMake(0, self.height)
+      return self.origin + (0, self.height)
     }
     set(value) {
-      self.origin = self.origin + (value - self.bottomLeft as CGPoint)
+      self.origin += (value - self.bottomLeft) as CGVector
     }
   }
 
   public var bottomRight: CGPoint {
     get {
-      return self.origin + CGSizeMake(self.width, self.height)
+      return self.origin + (self.width, self.height)
     }
     set(value) {
-      self.origin = self.origin + (value - self.bottomRight as CGPoint)
+      self.origin += (value - self.bottomRight) as CGVector
     }
   }
 
   public var topMiddle: CGPoint {
     get {
-      return self.origin + CGSizeMake(self.width/2, 0)
+      return self.origin + (self.width / 2, 0)
     }
     set(value) {
-      self.origin = self.origin + (value - self.topMiddle as CGPoint)
+      self.origin += (value - self.topMiddle) as CGVector
     }
   }
 
   public var leftMiddle: CGPoint {
     get {
-      return self.origin + CGSizeMake(0, self.height/2)
+      return self.origin + (0, self.height / 2)
     }
     set(value) {
-      self.origin = self.origin + (value - self.leftMiddle as CGPoint)
+      self.origin += (value - self.leftMiddle) as CGVector
     }
   }
 
   public var bottomMiddle: CGPoint {
     get {
-      return self.origin + CGSizeMake(self.width/2, self.height)
+      return self.origin + (self.width / 2, self.height)
     }
     set(value) {
-      self.origin = self.origin + (value - self.bottomMiddle as CGPoint)
+      self.origin += (value - self.bottomMiddle) as CGVector
     }
   }
 
   public var rightMiddle: CGPoint {
     get {
-      return self.origin + CGSizeMake(self.width, self.height/2)
+      return self.origin + (self.width, self.height / 2)
     }
     set(value) {
-      self.origin = self.origin + (value - self.rightMiddle as CGPoint)
+      self.origin += (value - self.rightMiddle) as CGVector
     }
   }
 
@@ -142,12 +142,12 @@ public func +(lhs: CGRect, rhs: CGVector) -> CGRect {
 }
 
 public func +=(inout lhs: CGRect, rhs: CGSize) -> CGRect {
-  lhs.size = lhs.size + rhs
+  lhs.size += rhs
   return lhs
 }
 
 public func +=(inout lhs: CGRect, rhs: CGVector) -> CGRect {
-  lhs.origin = lhs.origin + rhs
+  lhs.origin += rhs
   return lhs
 }
 
@@ -160,12 +160,12 @@ public func -(lhs: CGRect, rhs: CGVector) -> CGRect {
 }
 
 public func -=(inout lhs: CGRect, rhs: CGSize) -> CGRect {
-  lhs.size = lhs.size - rhs
+  lhs.size -= rhs
   return lhs
 }
 
 public func -=(inout lhs: CGRect, rhs: CGVector) -> CGRect {
-  lhs.origin = lhs.origin - rhs
+  lhs.origin -= rhs
   return lhs
 }
 
