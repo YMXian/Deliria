@@ -53,7 +53,7 @@ extension CGRect {
       return self.origin + (self.width / 2, self.height / 2)
     }
     set(value) {
-      self.origin += (value - self.center) as CGVector
+      self.origin += (value - self.center)
     }
   }
 
@@ -71,7 +71,7 @@ extension CGRect {
       return self.origin + (self.width, 0)
     }
     set(value) {
-      self.origin += (value - self.topRight) as CGVector
+      self.origin += (value - self.topRight)
     }
   }
 
@@ -80,7 +80,7 @@ extension CGRect {
       return self.origin + (0, self.height)
     }
     set(value) {
-      self.origin += (value - self.bottomLeft) as CGVector
+      self.origin += (value - self.bottomLeft)
     }
   }
 
@@ -89,7 +89,7 @@ extension CGRect {
       return self.origin + (self.width, self.height)
     }
     set(value) {
-      self.origin += (value - self.bottomRight) as CGVector
+      self.origin += (value - self.bottomRight)
     }
   }
 
@@ -98,7 +98,7 @@ extension CGRect {
       return self.origin + (self.width / 2, 0)
     }
     set(value) {
-      self.origin += (value - self.topMiddle) as CGVector
+      self.origin += (value - self.topMiddle)
     }
   }
 
@@ -107,7 +107,7 @@ extension CGRect {
       return self.origin + (0, self.height / 2)
     }
     set(value) {
-      self.origin += (value - self.leftMiddle) as CGVector
+      self.origin += (value - self.leftMiddle)
     }
   }
 
@@ -116,7 +116,7 @@ extension CGRect {
       return self.origin + (self.width / 2, self.height)
     }
     set(value) {
-      self.origin += (value - self.bottomMiddle) as CGVector
+      self.origin += (value - self.bottomMiddle)
     }
   }
 
@@ -125,7 +125,7 @@ extension CGRect {
       return self.origin + (self.width, self.height / 2)
     }
     set(value) {
-      self.origin += (value - self.rightMiddle) as CGVector
+      self.origin += (value - self.rightMiddle)
     }
   }
 
@@ -133,44 +133,72 @@ extension CGRect {
 
 //  MARK: - Operator
 
+/**
+Add a CGSize to a CGRect.size, returns a new CGRect
+
+- parameter lhs: CGRect
+- parameter rhs: CGSize
+
+- returns: new CGRect
+*/
 public func +(lhs: CGRect, rhs: CGSize) -> CGRect {
   return CGRect(origin: lhs.origin, size: lhs.size + rhs)
 }
 
+/**
+ Add a CGVector to a CGRect.origin, returns a new CGRect
+
+ - parameter lhs: CGRect
+ - parameter rhs: CGVector
+
+ - returns: new CGRect
+ */
 public func +(lhs: CGRect, rhs: CGVector) -> CGRect {
   return CGRect(origin: lhs.origin + rhs, size: lhs.size)
 }
 
+/** See + */
 public func +=(inout lhs: CGRect, rhs: CGSize) -> CGRect {
   lhs.size += rhs
   return lhs
 }
 
+/** See + */
 public func +=(inout lhs: CGRect, rhs: CGVector) -> CGRect {
   lhs.origin += rhs
   return lhs
 }
 
+/** See + */
 public func -(lhs: CGRect, rhs: CGSize) -> CGRect {
-  return CGRect(origin: lhs.origin, size: lhs.size - rhs)
+  return lhs + -rhs
 }
 
+/** See + */
 public func -(lhs: CGRect, rhs: CGVector) -> CGRect {
-  return CGRect(origin: lhs.origin - rhs, size: lhs.size)
+  return lhs + -rhs
 }
 
+/** See - */
 public func -=(inout lhs: CGRect, rhs: CGSize) -> CGRect {
-  lhs.size -= rhs
-  return lhs
+  return lhs += -rhs
 }
 
+/** See - */
 public func -=(inout lhs: CGRect, rhs: CGVector) -> CGRect {
-  lhs.origin -= rhs
-  return lhs
+  return lhs += -rhs
 }
 
 /* CGRect + CGPoint is meaningless, use Vector2DConvertible.vector to convert CGPoint to a CGVector */
 
+/**
+Apply CGAffineTransform to a CGRect, returns a new CGRect
+
+- parameter lhs: CGRect
+- parameter rhs: CGAffineTransform
+
+- returns: a new CGRect
+*/
 public func *(lhs: CGRect, rhs: CGAffineTransform) -> CGRect {
   return CGRectApplyAffineTransform(lhs, rhs)
 }

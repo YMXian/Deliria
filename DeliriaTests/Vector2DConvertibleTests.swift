@@ -22,7 +22,7 @@ class DeliriaTests: XCTestCase {
   func testVector2DConvertible() {
     let point1: CGPoint = [1.0, 2.0]
     let size1: CGSize  = [2.0, 1.0]
-    var result: CGVector = point1 + size1
+    var result: CGVector = (point1 + size1).vector
     XCTAssertEqual(result.x, 3.0)
     XCTAssertEqual(result.y, 3.0)
     result += (1.0, 1.0)
