@@ -1,5 +1,5 @@
 //
-//  CGPoint+CGExtension.swift
+//  CGPoint+Vector2DConvertible.swift
 //  Deliria
 //
 //  Created by Yanke Guo on 16/2/7.

@@ -1,5 +1,5 @@
 //
-//  UIColor+HexSupport.swift
+//  UIColor+Hex.swift
 //  Deliria
 //
 //  Created by Yanke Guo on 16/2/9.
@@ -101,7 +101,7 @@ extension UIColor {
 
    - returns: hex string
    */
-  public func hexString(includingAlpha: Bool = false) -> String {
+  public func toHexString(includingAlpha: Bool = false) -> String {
     var r: CGFloat = 0
     var g: CGFloat = 0
     var b: CGFloat = 0
@@ -116,7 +116,7 @@ extension UIColor {
   }
 
   public override var description: String {
-    return "\(super.description)\(self.hexString(true))"
+    return "\(super.description)\(self.toHexString(true))"
   }
 
   public override var debugDescription: String {
