@@ -23,6 +23,7 @@
 		69928DC71C6B85B8003B2980 /* NumericTypes+ControlFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69928DC61C6B85B8003B2980 /* NumericTypes+ControlFlow.swift */; };
 		69928DC91C6B9137003B2980 /* NumericTypes+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69928DC81C6B9137003B2980 /* NumericTypes+Constant.swift */; };
 		69928DCB1C6B9C62003B2980 /* CGRect+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69928DCA1C6B9C62003B2980 /* CGRect+Operator.swift */; };
+		69CDF79C1C70FA990042CC2B /* NSLocalizedString+Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CDF79B1C70FA990042CC2B /* NSLocalizedString+Shortcut.swift */; };
 		69F5E91E1C664CD000D1D689 /* Deliria.h in Headers */ = {isa = PBXBuildFile; fileRef = 69F5E91D1C664CD000D1D689 /* Deliria.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69F5E9251C664CD000D1D689 /* Deliria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F5E91A1C664CD000D1D689 /* Deliria.framework */; };
 		69F5E92A1C664CD000D1D689 /* Vector2DConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9291C664CD000D1D689 /* Vector2DConvertibleTests.swift */; };
@@ -60,6 +61,7 @@
 		69928DC61C6B85B8003B2980 /* NumericTypes+ControlFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumericTypes+ControlFlow.swift"; sourceTree = "<group>"; };
 		69928DC81C6B9137003B2980 /* NumericTypes+Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumericTypes+Constant.swift"; sourceTree = "<group>"; };
 		69928DCA1C6B9C62003B2980 /* CGRect+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Operator.swift"; sourceTree = "<group>"; };
+		69CDF79B1C70FA990042CC2B /* NSLocalizedString+Shortcut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocalizedString+Shortcut.swift"; sourceTree = "<group>"; };
 		69F5E91A1C664CD000D1D689 /* Deliria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deliria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F5E91D1C664CD000D1D689 /* Deliria.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deliria.h; sourceTree = "<group>"; };
 		69F5E91F1C664CD000D1D689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				69928DB51C6B8120003B2980 /* NSMutableArray */,
 				69928DB01C6B7D98003B2980 /* NSArray */,
+				69CDF79B1C70FA990042CC2B /* NSLocalizedString+Shortcut.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69CDF79C1C70FA990042CC2B /* NSLocalizedString+Shortcut.swift in Sources */,
 				69F5E93E1C665C9700D1D689 /* Vector2DConvertible.swift in Sources */,
 				69F5E9461C66686D00D1D689 /* CGVector+Vector2DConvertible.swift in Sources */,
 				69928DC21C6B842F003B2980 /* Array+Operator.swift in Sources */,
