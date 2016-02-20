@@ -15,6 +15,7 @@
 		6946EA6E1C69FAA600AFD8E9 /* UIImage+Manipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946EA6D1C69FAA600AFD8E9 /* UIImage+Manipulation.swift */; };
 		6946EA701C6A521600AFD8E9 /* CGFloat+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6946EA6F1C6A521600AFD8E9 /* CGFloat+Converter.swift */; };
 		69492EA71C76F22900354D93 /* UIBezierPath+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69492EA61C76F22900354D93 /* UIBezierPath+Operator.swift */; };
+		698ABC761C7815CB00C536A8 /* UIBezierPathOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698ABC751C7815CB00C536A8 /* UIBezierPathOperator.swift */; };
 		69928DB71C6B813E003B2980 /* NSMutableArray+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69928DB61C6B813E003B2980 /* NSMutableArray+Operator.swift */; };
 		69928DB91C6B8259003B2980 /* NSArray+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69928DB81C6B8259003B2980 /* NSArray+Operator.swift */; };
 		69928DC01C6B842A003B2980 /* Set+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69928DBF1C6B842A003B2980 /* Set+Operator.swift */; };
@@ -53,6 +54,7 @@
 		6946EA6D1C69FAA600AFD8E9 /* UIImage+Manipulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Manipulation.swift"; sourceTree = "<group>"; };
 		6946EA6F1C6A521600AFD8E9 /* CGFloat+Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Converter.swift"; sourceTree = "<group>"; };
 		69492EA61C76F22900354D93 /* UIBezierPath+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Operator.swift"; sourceTree = "<group>"; };
+		698ABC751C7815CB00C536A8 /* UIBezierPathOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathOperator.swift; sourceTree = "<group>"; };
 		69928DB61C6B813E003B2980 /* NSMutableArray+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableArray+Operator.swift"; sourceTree = "<group>"; };
 		69928DB81C6B8259003B2980 /* NSArray+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSArray+Operator.swift"; sourceTree = "<group>"; };
 		69928DBF1C6B842A003B2980 /* Set+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Operator.swift"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				69F5E9291C664CD000D1D689 /* Vector2DConvertibleTests.swift */,
 				69F5E92B1C664CD000D1D689 /* Info.plist */,
+				698ABC751C7815CB00C536A8 /* UIBezierPathOperator.swift */,
 			);
 			path = DeliriaTests;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69F5E92A1C664CD000D1D689 /* Vector2DConvertibleTests.swift in Sources */,
+				698ABC761C7815CB00C536A8 /* UIBezierPathOperator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

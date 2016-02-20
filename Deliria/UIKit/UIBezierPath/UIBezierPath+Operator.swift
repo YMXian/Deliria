@@ -8,16 +8,13 @@
 
 import UIKit
 
-extension UIBezierPath {
-}
+infix operator    --> { associativity left }
 
-infix operator --> { associativity left }
+infix operator    +-> { associativity left }
 
-infix operator +-> { associativity left }
+infix operator    +~> { associativity left }
 
-infix operator +~> { associativity left }
-
-postfix operator ->| { }
+postfix operator  ->| { }
 
 /**
  UIBezierPath move to point
@@ -45,18 +42,31 @@ public func +-> (lhs: UIBezierPath, rhs: CGPoint) -> UIBezierPath {
   return lhs
 }
 
+public func +-> (lhs: CGPoint, rhs: CGPoint) -> UIBezierPath {
+  return UIBezierPath() --> lhs +-> rhs
+}
+
 /**
  UIBezierPath add curve to point
 
  - parameter lhs: lhs
- - parameter rhs: (endPoint, controlPoint1, controlPoint2)
+ - parameter rhs: [endPoint, controlPoint1, controlPoint2] or [endPoint, controlPoint]
 
  - returns: lhs
  */
-public func +~> (lhs: UIBezierPath, rhs: (CGPoint, CGPoint, CGPoint)) -> UIBezierPath {
-  let (endPoint, controlPoint1, controlPoint2) = rhs
-  lhs.addCurveToPoint(endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
+public func +~> (lhs: UIBezierPath, rhs: [CGPoint]) -> UIBezierPath {
+  if rhs.count == 3 {
+    lhs.addCurveToPoint(rhs[0], controlPoint1: rhs[1], controlPoint2: rhs[2])
+  } else if rhs.count == 2 {
+    lhs.addQuadCurveToPoint(rhs[0], controlPoint: rhs[1])
+  } else {
+    fatalError("Wrong number of CGPoint after operator +~> :\(rhs.count)")
+  }
   return lhs
+}
+
+public func +~> (lhs: CGPoint, rhs: [CGPoint]) -> UIBezierPath {
+  return UIBezierPath() --> lhs +~> rhs
 }
 
 /**
