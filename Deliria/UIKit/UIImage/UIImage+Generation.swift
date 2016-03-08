@@ -19,12 +19,36 @@ extension UIImage {
    - returns: image
    */
   public static func imageWithColor(color: UIColor, size: CGSize = [1, 1]) -> UIImage {
+
+    //  Local NSCache for image with color
+    struct Static {
+      static let cache: NSCache = {
+        let c = NSCache()
+        //  Cost limit to 60x60 pixels
+        c.totalCostLimit = 360
+        return c
+      }()
+    }
+
+    let cacheKey = "\(color.hash)-\(size.width)x\(size.height)"
+
+    //  Try local cached image
+    if let cachedImage = Static.cache.objectForKey(cacheKey) {
+      return cachedImage as! UIImage
+    }
+
+    //  Create image
     UIGraphicsBeginImageContextWithOptions(size, false, 1)
     let context = UIGraphicsGetCurrentContext()
     CGContextSetFillColorWithColor(context, color.CGColor)
     CGContextFillRect(context, CGRect(origin: CGPointZero, size: size))
     let image = UIGraphicsGetImageFromCurrentImageContext()!
     UIGraphicsEndImageContext()
+    
+    //  Put image to cache
+    let (width, height) = image.pixelSize
+    Static.cache.setObject(image, forKey: cacheKey, cost: width * height)
+
     return image
   }
 
