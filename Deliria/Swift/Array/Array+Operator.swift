@@ -20,6 +20,21 @@ public func << <T>(inout lhs: [T], rhs: T) -> [T] {
   return lhs
 }
 
+public func +=<T>(inout lhs: [T], rhs: T) -> [T] {
+  return lhs << rhs
+}
+
+public func >><T: Equatable>(inout lhs: [T], rhs: T) -> [T] {
+  if let idx = lhs.indexOf(rhs) {
+    lhs.removeAtIndex(idx)
+  }
+  return lhs
+}
+
+public func -=<T: Equatable>(inout lhs: [T], rhs: T) -> [T] {
+  return lhs >> rhs
+}
+
 /**
  Create a new Array by repeating Array for n times
 

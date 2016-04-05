@@ -44,7 +44,7 @@ extension UIImage {
     CGContextFillRect(context, CGRect(origin: CGPointZero, size: size))
     let image = UIGraphicsGetImageFromCurrentImageContext()!
     UIGraphicsEndImageContext()
-    
+
     //  Put image to cache
     let (width, height) = image.pixelSize
     Static.cache.setObject(image, forKey: cacheKey, cost: width * height)
