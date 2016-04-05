@@ -30,18 +30,18 @@ extension CGRect: ArrayLiteralConvertible {
     }
   }
 
-  public var width: CGFloat {
+  public var _width: CGFloat {
     get {
-      return self.size.width
+      return self.width
     }
     set(value) {
       self.size.width = value
     }
   }
 
-  public var height: CGFloat {
+  public var _height: CGFloat {
     get {
-      return self.size.height
+      return self.height
     }
     set(value) {
       self.size.height = value
