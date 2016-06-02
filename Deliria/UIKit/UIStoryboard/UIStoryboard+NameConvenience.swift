@@ -16,7 +16,7 @@ public extension UIStoryboard {
     }
   }
 
-  public func viewControlerNamed(name: String) -> UIViewController? {
+  public func viewControllerNamed(name: String) -> UIViewController? {
     return self.instantiateViewControllerWithIdentifier(name)
   }
 

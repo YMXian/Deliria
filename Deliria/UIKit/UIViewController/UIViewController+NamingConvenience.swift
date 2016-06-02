@@ -17,7 +17,7 @@ public extension UIViewController {
   }
 
   public func viewControllerNamed(name: String) -> UIViewController? {
-    return self.storyboard?.viewControlerNamed(name)
+    return self.storyboard?.viewControllerNamed(name)
   }
 
 }
