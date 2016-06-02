@@ -25,6 +25,8 @@
 		69928DC91C6B9137003B2980 /* NumericTypes+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69928DC81C6B9137003B2980 /* NumericTypes+Constant.swift */; };
 		69928DCB1C6B9C62003B2980 /* CGRect+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69928DCA1C6B9C62003B2980 /* CGRect+Operator.swift */; };
 		69CDF79C1C70FA990042CC2B /* NSLocalizedString+Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CDF79B1C70FA990042CC2B /* NSLocalizedString+Shortcut.swift */; };
+		69F2AFCC1D00214D00A06AA7 /* DispatchUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F2AFCB1D00214D00A06AA7 /* DispatchUtils.swift */; };
+		69F2AFCF1D00245000A06AA7 /* UIStoryboard+NameConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F2AFCE1D00245000A06AA7 /* UIStoryboard+NameConvenience.swift */; };
 		69F5E91E1C664CD000D1D689 /* Deliria.h in Headers */ = {isa = PBXBuildFile; fileRef = 69F5E91D1C664CD000D1D689 /* Deliria.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69F5E9251C664CD000D1D689 /* Deliria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F5E91A1C664CD000D1D689 /* Deliria.framework */; };
 		69F5E92A1C664CD000D1D689 /* Vector2DConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F5E9291C664CD000D1D689 /* Vector2DConvertibleTests.swift */; };
@@ -70,6 +72,8 @@
 		69928DC81C6B9137003B2980 /* NumericTypes+Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumericTypes+Constant.swift"; sourceTree = "<group>"; };
 		69928DCA1C6B9C62003B2980 /* CGRect+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Operator.swift"; sourceTree = "<group>"; };
 		69CDF79B1C70FA990042CC2B /* NSLocalizedString+Shortcut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocalizedString+Shortcut.swift"; sourceTree = "<group>"; };
+		69F2AFCB1D00214D00A06AA7 /* DispatchUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchUtils.swift; sourceTree = "<group>"; };
+		69F2AFCE1D00245000A06AA7 /* UIStoryboard+NameConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+NameConvenience.swift"; sourceTree = "<group>"; };
 		69F5E91A1C664CD000D1D689 /* Deliria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deliria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F5E91D1C664CD000D1D689 /* Deliria.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deliria.h; sourceTree = "<group>"; };
 		69F5E91F1C664CD000D1D689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		6946EA5F1C69E04000AFD8E9 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				69F2AFCD1D00236800A06AA7 /* UIStoryboard */,
 				69F83A9E1CA972B00015164A /* UIView */,
 				69492EA51C76F20B00354D93 /* UIBezierPath */,
 				6946EA681C69EE8100AFD8E9 /* UIImage */,
@@ -218,6 +223,22 @@
 			path = NumericTypes;
 			sourceTree = "<group>";
 		};
+		69F2AFCA1D00213200A06AA7 /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				69F2AFCB1D00214D00A06AA7 /* DispatchUtils.swift */,
+			);
+			path = Dispatch;
+			sourceTree = "<group>";
+		};
+		69F2AFCD1D00236800A06AA7 /* UIStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				69F2AFCE1D00245000A06AA7 /* UIStoryboard+NameConvenience.swift */,
+			);
+			path = UIStoryboard;
+			sourceTree = "<group>";
+		};
 		69F5E9101C664CD000D1D689 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +260,7 @@
 		69F5E91C1C664CD000D1D689 /* Deliria */ = {
 			isa = PBXGroup;
 			children = (
+				69F2AFCA1D00213200A06AA7 /* Dispatch */,
 				69928D561C6B7D5B003B2980 /* Foundation */,
 				6946EA711C6A538F00AFD8E9 /* Swift */,
 				6946EA5F1C69E04000AFD8E9 /* UIKit */,
@@ -436,6 +458,7 @@
 				69CDF79C1C70FA990042CC2B /* NSLocalizedString+Shortcut.swift in Sources */,
 				69F5E93E1C665C9700D1D689 /* Vector2DConvertible.swift in Sources */,
 				69F5E9461C66686D00D1D689 /* CGVector+Vector2DConvertible.swift in Sources */,
+				69F2AFCF1D00245000A06AA7 /* UIStoryboard+NameConvenience.swift in Sources */,
 				69928DC21C6B842F003B2980 /* Array+Operator.swift in Sources */,
 				6946EA621C69E16800AFD8E9 /* UIOffset+Vector2DConvertible.swift in Sources */,
 				6946EA6A1C69EE9600AFD8E9 /* UIImage+Generation.swift in Sources */,
@@ -443,6 +466,7 @@
 				69928DC71C6B85B8003B2980 /* NumericTypes+ControlFlow.swift in Sources */,
 				69F83AA01CA972CE0015164A /* UIView+Style.swift in Sources */,
 				69F5E9401C66657E00D1D689 /* CGRect+PositionHelper.swift in Sources */,
+				69F2AFCC1D00214D00A06AA7 /* DispatchUtils.swift in Sources */,
 				69928DC91C6B9137003B2980 /* NumericTypes+Constant.swift in Sources */,
 				6946EA6C1C69F0F000AFD8E9 /* UIColor+Utils.swift in Sources */,
 				6946EA6E1C69FAA600AFD8E9 /* UIImage+Manipulation.swift in Sources */,

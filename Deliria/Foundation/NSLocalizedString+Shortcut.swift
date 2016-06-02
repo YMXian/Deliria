@@ -19,3 +19,7 @@ import Foundation
 public func L(key: String, comment: String = "") -> String {
   return NSLocalizedString(key, comment: comment)
 }
+
+public func L(key: String) -> String {
+  return L(key, comment: "")
+}
