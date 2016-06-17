@@ -58,7 +58,6 @@ public struct HTTPError {
 
         - returns: An `NSError` with the given error code and failure reason.
     */
-    @available(*, deprecated=3.4.0)
     public static func errorWithCode(code: Code, failureReason: String) -> NSError {
         return errorWithCode(code.rawValue, failureReason: failureReason)
     }
@@ -71,7 +70,6 @@ public struct HTTPError {
 
         - returns: An `NSError` with the given error code and failure reason.
     */
-    @available(*, deprecated=3.4.0)
     public static func errorWithCode(code: Int, failureReason: String) -> NSError {
         let userInfo = [NSLocalizedFailureReasonErrorKey: failureReason]
         return NSError(domain: Domain, code: code, userInfo: userInfo)
