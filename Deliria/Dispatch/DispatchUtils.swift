@@ -24,6 +24,10 @@ public func dispatch_after_seconds(queue: dispatch_queue_t, _ seconds: NSTimeInt
    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * NSTimeInterval(NSEC_PER_SEC))), queue, block)
 }
 
+public func dispatch_after_milliseconds(queue: dispatch_queue_t, _ milliseconds: UInt64, _ block: VoidBlock) {
+   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(milliseconds * NSEC_PER_MSEC)), queue, block)
+}
+
 public func dispatch_main_after(seconds: NSTimeInterval, _ block: VoidBlock) {
   dispatch_after_seconds(dispatch_get_main_queue(), seconds, block)
 }

@@ -29,6 +29,11 @@ extension Int {
     return Swift.Float(self)
   }
 
+  /// Convert self:Int to String
+  public var String: Swift.String {
+    return Swift.String(self)
+  }
+
 }
 
 extension UInt {
