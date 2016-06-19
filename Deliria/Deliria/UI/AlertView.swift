@@ -401,7 +401,7 @@ public class AlertView: UIViewController {
         return txt
     }
 
-    public func addButton(title: String, backgroundColor: UIColor? = nil, textColor: UIColor? = nil, showDurationStatus: Bool=false, action:() -> Void)-> AlertViewButton {
+    public func addButton(title: String, backgroundColor: UIColor? = nil, textColor: UIColor? = nil, showDurationStatus: Bool=false, action:() -> Void) -> AlertViewButton {
         let btn = addButton(title, backgroundColor: backgroundColor, textColor: textColor, showDurationStatus: showDurationStatus)
         btn.actionType = AlertViewActionType.Closure
         btn.action = action
