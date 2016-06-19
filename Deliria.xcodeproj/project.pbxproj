@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		693207F01D1665C000278FA3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693207EF1D1665C000278FA3 /* AlertView.swift */; };
+		693207F21D1665CC00278FA3 /* Decimal+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693207F11D1665CC00278FA3 /* Decimal+UIColor.swift */; };
 		693901F61D15505B00D87032 /* CryptoAES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693901BC1D15505B00D87032 /* CryptoAES.swift */; };
 		693901F71D15505B00D87032 /* Array+CryptoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693901BD1D15505B00D87032 /* Array+CryptoExtension.swift */; };
 		693901F81D15505B00D87032 /* CryptoAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693901BE1D15505B00D87032 /* CryptoAuthenticator.swift */; };
@@ -146,6 +148,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		693207EF1D1665C000278FA3 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		693207F11D1665CC00278FA3 /* Decimal+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Decimal+UIColor.swift"; sourceTree = "<group>"; };
 		693901BC1D15505B00D87032 /* CryptoAES.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoAES.swift; sourceTree = "<group>"; };
 		693901BD1D15505B00D87032 /* Array+CryptoExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+CryptoExtension.swift"; sourceTree = "<group>"; };
 		693901BE1D15505B00D87032 /* CryptoAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoAuthenticator.swift; sourceTree = "<group>"; };
@@ -296,6 +300,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		693207EE1D1665C000278FA3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				693207EF1D1665C000278FA3 /* AlertView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		693901BB1D15505B00D87032 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +421,7 @@
 		6946EA651C69E47F00AFD8E9 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
+				693207F11D1665CC00278FA3 /* Decimal+UIColor.swift */,
 				6946EA661C69E48F00AFD8E9 /* UIColor+Hex.swift */,
 				6946EA6B1C69F0F000AFD8E9 /* UIColor+Utils.swift */,
 			);
@@ -701,6 +714,7 @@
 		6D6DEF360C2A919B2E1729F1 /* Deliria */ = {
 			isa = PBXGroup;
 			children = (
+				693207EE1D1665C000278FA3 /* UI */,
 				693901BB1D15505B00D87032 /* Crypto */,
 				697002C11D127157003A53C0 /* JSON */,
 				697002C01D12707C003A53C0 /* HTTP */,
@@ -880,6 +894,7 @@
 				693902051D15505B00D87032 /* CryptoChaCha20.swift in Sources */,
 				693902231D15505B00D87032 /* Rabbit.swift in Sources */,
 				697002F71D1275F0003A53C0 /* JSONMappable.swift in Sources */,
+				693207F01D1665C000278FA3 /* AlertView.swift in Sources */,
 				69F5E9441C66681400D1D689 /* CGSize+Vector2DConvertible.swift in Sources */,
 				693902081D15505B00D87032 /* CryptoCryptors.swift in Sources */,
 				697002D91D127221003A53C0 /* HTTPNotifications.swift in Sources */,
@@ -894,6 +909,7 @@
 				693902021D15505B00D87032 /* CryptoOFB.swift in Sources */,
 				693901FD1D15505B00D87032 /* CryptoBlockModeWorker.swift in Sources */,
 				693901F91D15505B00D87032 /* CryptoBit.swift in Sources */,
+				693207F21D1665CC00278FA3 /* Decimal+UIColor.swift in Sources */,
 				69928DB91C6B8259003B2980 /* NSArray+Operator.swift in Sources */,
 				697002F81D1275F0003A53C0 /* JSONMapper.swift in Sources */,
 				6939021C1D15505B00D87032 /* Operators.swift in Sources */,

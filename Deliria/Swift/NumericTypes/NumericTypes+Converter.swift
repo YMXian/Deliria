@@ -58,6 +58,11 @@ extension UInt {
     return Swift.Float(self)
   }
 
+  /// Convert self:UInt to String
+  public var String: Swift.String {
+    return Swift.String(self)
+  }
+
 }
 
 extension Double {
