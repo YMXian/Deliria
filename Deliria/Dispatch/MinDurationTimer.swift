@@ -8,33 +8,27 @@
 
 import Foundation
 
-public class MinDurationScheduler {
+public class MinDurationTimer {
 
   public var dispatchQueue = dispatch_get_main_queue()
 
-  public var duration: UInt64
-
-  public var complete: VoidBlock
-
   private var initialMilliseconds: UInt64 = 0
 
-  public required init(duration: UInt64, complete: VoidBlock) {
-    self.duration = duration
-    self.complete = complete
+  public init() {
   }
 
-  public func start() {
+  public func mark() {
     self.initialMilliseconds = GetDeviceUptimeInMilliseconds()
   }
 
-  public func commit() {
+  public func commit(duration: UInt64, _ block: VoidBlock) {
     let current = GetDeviceUptimeInMilliseconds()
     let diff    = current - initialMilliseconds
 
     if diff >= duration {
-      complete()
+      block()
     } else {
-      dispatch_after_milliseconds(dispatchQueue, duration - diff, complete)
+      dispatch_after_milliseconds(dispatchQueue, duration - diff, block)
     }
   }
 
