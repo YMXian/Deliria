@@ -106,6 +106,7 @@
 		697003021D1275F0003A53C0 /* JSONTransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697002F31D1275F0003A53C0 /* JSONTransformType.swift */; };
 		697003031D1275F0003A53C0 /* JSONURLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697002F41D1275F0003A53C0 /* JSONURLTransform.swift */; };
 		697003051D12765A003A53C0 /* HTTP+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697003041D12765A003A53C0 /* HTTP+JSON.swift */; };
+		697629A81D17943D00DD86EB /* UIAlertController+ConvientInitializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697629A71D17943D00DD86EB /* UIAlertController+ConvientInitializers.swift */; };
 		6982D5361D002A8C00FFA056 /* UIViewController+NamingConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982D5351D002A8C00FFA056 /* UIViewController+NamingConvenience.swift */; };
 		698ABC761C7815CB00C536A8 /* UIBezierPathOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698ABC751C7815CB00C536A8 /* UIBezierPathOperator.swift */; };
 		69928DB71C6B813E003B2980 /* NSMutableArray+Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69928DB61C6B813E003B2980 /* NSMutableArray+Operator.swift */; };
@@ -247,6 +248,7 @@
 		697002F31D1275F0003A53C0 /* JSONTransformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransformType.swift; sourceTree = "<group>"; };
 		697002F41D1275F0003A53C0 /* JSONURLTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONURLTransform.swift; sourceTree = "<group>"; };
 		697003041D12765A003A53C0 /* HTTP+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HTTP+JSON.swift"; sourceTree = "<group>"; };
+		697629A71D17943D00DD86EB /* UIAlertController+ConvientInitializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ConvientInitializers.swift"; sourceTree = "<group>"; };
 		6982D5351D002A8C00FFA056 /* UIViewController+NamingConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NamingConvenience.swift"; sourceTree = "<group>"; };
 		698ABC751C7815CB00C536A8 /* UIBezierPathOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathOperator.swift; sourceTree = "<group>"; };
 		69928DB61C6B813E003B2980 /* NSMutableArray+Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableArray+Operator.swift"; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 		6946EA5F1C69E04000AFD8E9 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				697629A61D17941800DD86EB /* UIAlertController */,
 				6982D5341D002A6300FFA056 /* UIViewController */,
 				69F2AFCD1D00236800A06AA7 /* UIStoryboard */,
 				69F83A9E1CA972B00015164A /* UIView */,
@@ -522,6 +525,14 @@
 				697002F41D1275F0003A53C0 /* JSONURLTransform.swift */,
 			);
 			path = Transforms;
+			sourceTree = "<group>";
+		};
+		697629A61D17941800DD86EB /* UIAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				697629A71D17943D00DD86EB /* UIAlertController+ConvientInitializers.swift */,
+			);
+			path = UIAlertController;
 			sourceTree = "<group>";
 		};
 		6982D5341D002A6300FFA056 /* UIViewController */ = {
@@ -881,6 +892,7 @@
 				69928DC91C6B9137003B2980 /* NumericTypes+Constant.swift in Sources */,
 				6946EA6C1C69F0F000AFD8E9 /* UIColor+Utils.swift in Sources */,
 				6946EA6E1C69FAA600AFD8E9 /* UIImage+Manipulation.swift in Sources */,
+				697629A81D17943D00DD86EB /* UIAlertController+ConvientInitializers.swift in Sources */,
 				693902281D15505B00D87032 /* UInt32Extension.swift in Sources */,
 				697002DB1D127221003A53C0 /* HTTPRequest.swift in Sources */,
 				693902071D15505B00D87032 /* CryptoCRC.swift in Sources */,

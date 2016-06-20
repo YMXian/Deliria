@@ -16,6 +16,10 @@ public extension UIViewController {
     }
   }
 
+  public func showAlertController(title: String?, message: String? = "", buttonTitle: String? = "OK") {
+    self.presentViewController(UIAlertController(title: title, message: message, buttonTitle: buttonTitle), animated: true, completion: nil)
+  }
+
   public func viewControllerNamed(name: String) -> UIViewController? {
     return self.storyboard?.viewControllerNamed(name)
   }
