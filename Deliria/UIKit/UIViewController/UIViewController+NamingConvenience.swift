@@ -16,7 +16,7 @@ public extension UIViewController {
     }
   }
 
-  public func showAlertController(title: String?, message: String? = "", buttonTitle: String? = "OK") {
+  public func showAlertController(title: String?, message: String? = "", buttonTitle: String? = L("OK")) {
     self.presentViewController(UIAlertController(title: title, message: message, buttonTitle: buttonTitle), animated: true, completion: nil)
   }
 
