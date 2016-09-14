@@ -8,20 +8,20 @@
 
 import Foundation
 
-public class MinDurationTimer {
+open class MinDurationTimer {
 
-  public var dispatchQueue = dispatch_get_main_queue()
+  open var dispatchQueue = DispatchQueue.main
 
-  private var initialMilliseconds: UInt64 = 0
+  fileprivate var initialMilliseconds: UInt64 = 0
 
   public init() {
   }
 
-  public func mark() {
+  open func mark() {
     self.initialMilliseconds = GetDeviceUptimeInMilliseconds()
   }
 
-  public func commit(duration: UInt64, _ block: VoidBlock) {
+  open func commit(_ duration: UInt64, _ block: @escaping VoidBlock) {
     let current = GetDeviceUptimeInMilliseconds()
     let diff    = current - initialMilliseconds
 

@@ -73,11 +73,11 @@ extension UIColor {
 
    - parameter hexString: String value.
    */
-  public convenience init(hexString: String, fallbackColor: UIColor = UIColor.clearColor()) {
-    let hexString = hexString.hasPrefix("#") ? hexString.substringFromIndex(hexString.startIndex.advancedBy(1)) : hexString
+  public convenience init(hexString: String, fallbackColor: UIColor = UIColor.clear) {
+    let hexString = hexString.hasPrefix("#") ? hexString.substring(from: hexString.characters.index(hexString.startIndex, offsetBy: 1)) : hexString
     var hexValue: UInt32 = 0
-    if !NSScanner(string: hexString).scanHexInt(&hexValue) {
-      self.init(CGColor: fallbackColor.CGColor)
+    if !Scanner(string: hexString).scanHexInt32(&hexValue) {
+      self.init(cgColor: fallbackColor.cgColor)
       return
     }
     switch (hexString.characters.count) {
@@ -90,7 +90,7 @@ extension UIColor {
     case 8:
       self.init(hex8: hexValue)
     default:
-      self.init(CGColor: fallbackColor.CGColor)
+      self.init(cgColor: fallbackColor.cgColor)
     }
   }
 
@@ -101,7 +101,7 @@ extension UIColor {
 
    - returns: hex string
    */
-  public func toHexString(includingAlpha: Bool = false) -> String {
+  public func toHexString(_ includingAlpha: Bool = false) -> String {
     var r: CGFloat = 0
     var g: CGFloat = 0
     var b: CGFloat = 0
@@ -115,11 +115,11 @@ extension UIColor {
     }
   }
 
-  public override var description: String {
+  open override var description: String {
     return "\(super.description)\(self.toHexString(true))"
   }
 
-  public override var debugDescription: String {
+  open override var debugDescription: String {
     return self.description
   }
 

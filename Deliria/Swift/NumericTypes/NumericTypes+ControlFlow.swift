@@ -6,21 +6,6 @@
 //  Copyright © 2016年 JuXian(Beijing) Technology Co., Ltd. All rights reserved.
 //
 
-extension UnsignedIntegerType {
-
-  /**
-   Repeat block for n times
-
-   - parameter block: block to execute
-   */
-  public func times(block: (Self) -> Void) {
-    for i in 0..<self {
-      block(i)
-    }
-  }
-
-}
-
 /**
  Shortcut to min(max(V, MIN), MAX)
 
@@ -30,6 +15,6 @@ extension UnsignedIntegerType {
 
  - returns: limited value result
  */
-public func limit<T: Comparable>(value: T, _ minValue: T, _ maxValue: T) -> T {
+public func limit<T: Comparable>(_ value: T, _ minValue: T, _ maxValue: T) -> T {
   return min(max(value, minValue), maxValue)
 }

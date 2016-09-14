@@ -33,13 +33,13 @@ public func +(lhs: CGRect, rhs: CGVector) -> CGRect {
 }
 
 /** See + */
-public func +=(inout lhs: CGRect, rhs: CGSize) -> CGRect {
+public func +=(lhs: inout CGRect, rhs: CGSize) -> CGRect {
   lhs.size += rhs
   return lhs
 }
 
 /** See + */
-public func +=(inout lhs: CGRect, rhs: CGVector) -> CGRect {
+public func +=(lhs: inout CGRect, rhs: CGVector) -> CGRect {
   lhs.origin += rhs
   return lhs
 }
@@ -55,12 +55,12 @@ public func -(lhs: CGRect, rhs: CGVector) -> CGRect {
 }
 
 /** See - */
-public func -=(inout lhs: CGRect, rhs: CGSize) -> CGRect {
+public func -=(lhs: inout CGRect, rhs: CGSize) -> CGRect {
   return lhs += -rhs
 }
 
 /** See - */
-public func -=(inout lhs: CGRect, rhs: CGVector) -> CGRect {
+public func -=(lhs: inout CGRect, rhs: CGVector) -> CGRect {
   return lhs += -rhs
 }
 
@@ -75,11 +75,11 @@ Apply CGAffineTransform to a CGRect, returns a new CGRect
 - returns: a new CGRect
 */
 public func *(lhs: CGRect, rhs: CGAffineTransform) -> CGRect {
-  return CGRectApplyAffineTransform(lhs, rhs)
+  return lhs.applying(rhs)
 }
 
-public func *=(inout lhs: CGRect, rhs: CGAffineTransform) -> CGRect {
-  let result = CGRectApplyAffineTransform(lhs, rhs)
+public func *=(lhs: inout CGRect, rhs: CGAffineTransform) -> CGRect {
+  let result = lhs.applying(rhs)
   lhs.origin = result.origin
   lhs.size   = result.size
   return lhs
@@ -97,7 +97,8 @@ public func *(lhs: CGRect, rhs: CGFloat) -> CGRect {
   return CGRect(origin: lhs.origin * rhs, size: lhs.size * rhs)
 }
 
-public func *=(inout lhs: CGRect, rhs: CGFloat) -> CGRect {
+@discardableResult
+public func *=(lhs: inout CGRect, rhs: CGFloat) -> CGRect {
   lhs.origin *= rhs
   lhs.size *= rhs
   return lhs

@@ -18,8 +18,8 @@ import Foundation
  */
 public func +(lhs: NSArray, rhs: NSArray) -> NSMutableArray {
   let array = NSMutableArray(capacity: lhs.count + rhs.count)
-  array.addObjectsFromArray(lhs as [AnyObject])
-  array.addObjectsFromArray(rhs as [AnyObject])
+  array.addObjects(from: lhs as [AnyObject])
+  array.addObjects(from: rhs as [AnyObject])
   return array
 }
 
@@ -31,10 +31,10 @@ public func +(lhs: NSArray, rhs: NSArray) -> NSMutableArray {
 
  - returns: new NSMutableArray
  */
-public func *<T: UnsignedIntegerType>(lhs: NSArray, rhs: T) -> NSMutableArray {
+public func *(lhs: NSArray, rhs: UInt64) -> NSMutableArray {
   let array = NSMutableArray()
-  rhs.times { _ in
-    array.addObjectsFromArray(lhs as [AnyObject])
+  for _ in 0..<rhs {
+    array.addObjects(from: lhs as [AnyObject])
   }
   return array
 }

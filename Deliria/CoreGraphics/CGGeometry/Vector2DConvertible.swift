@@ -72,14 +72,16 @@ public func +<T: Vector2DConvertible>(lhs: T, rhs: (CGFloat, CGFloat)) -> T {
 
  - returns: lhs
  */
-public func +=<T: Vector2DConvertible>(inout lhs: T, rhs: Vector2DConvertible) -> T {
+@discardableResult
+public func +=<T: Vector2DConvertible>(lhs: inout T, rhs: Vector2DConvertible) -> T {
   lhs.x += rhs.x
   lhs.y += rhs.y
   return lhs
 }
 
 /** Same as T: Vector2DConvertible += Vector2DConvertible, use tuple for right parameter */
-public func +=<T: Vector2DConvertible>(inout lhs: T, rhs: (CGFloat, CGFloat)) -> T {
+@discardableResult
+public func +=<T: Vector2DConvertible>(lhs: inout T, rhs: (CGFloat, CGFloat)) -> T {
   let (x, y) = rhs
   lhs.x += x
   lhs.y += y
@@ -98,14 +100,14 @@ public func -<T: Vector2DConvertible>(lhs: T, rhs: (CGFloat, CGFloat)) -> T {
 }
 
 /** See += */
-public func -=<T: Vector2DConvertible>(inout lhs: T, rhs: Vector2DConvertible) -> T {
+public func -=<T: Vector2DConvertible>(lhs: inout T, rhs: Vector2DConvertible) -> T {
   lhs.x = lhs.x - rhs.x
   lhs.y = lhs.y - rhs.y
   return lhs
 }
 
 /** See += */
-public func -=<T: Vector2DConvertible>(inout lhs: T, rhs: (CGFloat, CGFloat)) -> T {
+public func -=<T: Vector2DConvertible>(lhs: inout T, rhs: (CGFloat, CGFloat)) -> T {
   let (x, y) = rhs
   lhs.x = lhs.x - x
   lhs.y = lhs.y - y
@@ -125,7 +127,8 @@ public func *<T: Vector2DConvertible>(lhs: T, rhs: CGFloat) -> T {
 }
 
 /** See * */
-public func *=<T: Vector2DConvertible>(inout lhs: T, rhs: CGFloat) -> T {
+@discardableResult
+public func *=<T: Vector2DConvertible>(lhs: inout T, rhs: CGFloat) -> T {
   lhs.x *= rhs
   lhs.y *= rhs
   return lhs
@@ -137,7 +140,8 @@ public func /<T: Vector2DConvertible>(lhs: T, rhs: CGFloat) -> T {
 }
 
 /** See / */
-public func /=<T: Vector2DConvertible>(inout lhs: T, rhs: CGFloat) -> T {
+@discardableResult
+public func /=<T: Vector2DConvertible>(lhs: inout T, rhs: CGFloat) -> T {
   lhs.x /= rhs
   lhs.y /= rhs
   return lhs

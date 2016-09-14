@@ -15,7 +15,7 @@ extension Int {
     }
 
     func CGColor() -> UIKit.CGColor {
-      return UIColor().CGColor
+      return UIColor().cgColor
     }
 }
 
@@ -26,6 +26,6 @@ extension UInt {
     }
 
     func CGColor() -> UIKit.CGColor {
-      return UIColor().CGColor
+      return UIColor().cgColor
     }
 }

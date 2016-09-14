@@ -17,7 +17,7 @@ extension UIColor {
 
    - returns: image
    */
-  public func toImage(size: CGSize = [1, 1]) -> UIImage {
+  public func toImage(_ size: CGSize = [1, 1]) -> UIImage {
     return UIImage.imageWithColor(self, size: size)
   }
 

@@ -8,7 +8,7 @@
 
 import CoreGraphics
 
-extension CGPoint: Vector2DConvertible, ArrayLiteralConvertible {
+extension CGPoint: Vector2DConvertible, ExpressibleByArrayLiteral {
 
   /* .x, .y is supported directly */
 

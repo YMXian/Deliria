@@ -11,8 +11,8 @@ import UIKit
 extension UIAlertController {
 
   public convenience init(title: String?, message: String?, buttonTitle: String?) {
-    self.init(title: title, message: message, preferredStyle: .Alert)
-    self.addAction(UIAlertAction(title: buttonTitle, style: .Cancel, handler: nil))
+    self.init(title: title, message: message, preferredStyle: .alert)
+    self.addAction(UIAlertAction(title: buttonTitle, style: .cancel, handler: nil))
   }
 
 }

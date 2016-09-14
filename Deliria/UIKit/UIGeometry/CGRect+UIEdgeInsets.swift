@@ -28,7 +28,7 @@ public func +(lhs: CGRect, rhs: UIEdgeInsets) -> CGRect {
 
  - returns: lhs
  */
-public func +=(inout lhs: CGRect, rhs: UIEdgeInsets) -> CGRect {
+public func +=(lhs: inout CGRect, rhs: UIEdgeInsets) -> CGRect {
   lhs = UIEdgeInsetsInsetRect(lhs, rhs)
   return lhs
 }

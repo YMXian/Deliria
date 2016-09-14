@@ -8,11 +8,11 @@
 
 import UIKit
 
-public class ThemeRegistry<T: UIView> {
+open class ThemeRegistry<T: UIView> {
 
-  public typealias Builder = (view: T) -> Void
+  public typealias Builder = (_ view: T) -> Void
 
-  private var builders = [String: Builder]()
+  fileprivate var builders = [String: Builder]()
 
   /**
    Register a theme
@@ -20,7 +20,7 @@ public class ThemeRegistry<T: UIView> {
    - parameter themeName: theme name
    - parameter builder:   builder
    */
-  public func add(themeName: String, builder: Builder) {
+  open func add(_ themeName: String, builder: @escaping Builder) {
     self.builders[themeName] = builder
   }
 
@@ -30,8 +30,8 @@ public class ThemeRegistry<T: UIView> {
    - parameter themeName: theme name
    - parameter view:      target view
    */
-  public func apply(themeName: String, view: T) {
-    self.builders[themeName]?(view: view)
+  open func apply(_ themeName: String, view: T) {
+    self.builders[themeName]?(view)
   }
 
 }

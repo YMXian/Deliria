@@ -8,7 +8,7 @@
 
 import CoreGraphics
 
-extension CGSize:  Vector2DConvertible, ArrayLiteralConvertible {
+extension CGSize:  Vector2DConvertible, ExpressibleByArrayLiteral {
 
   public var x: CGFloat {
     get {

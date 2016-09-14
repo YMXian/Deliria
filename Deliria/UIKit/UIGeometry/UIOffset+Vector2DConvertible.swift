@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIOffset: Vector2DConvertible, ArrayLiteralConvertible {
+extension UIOffset: Vector2DConvertible, ExpressibleByArrayLiteral {
 
   public var x: CGFloat {
     get {

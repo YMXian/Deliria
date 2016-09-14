@@ -5,13 +5,13 @@
 
 import Foundation
 
-public typealias RouterAction = (url: NSURL, params: [String:String]) -> Void
+public typealias RouterAction = (_ url: URL, _ params: [String:String]) -> Void
 
 /*
  *  URL Router
  */
 
-public class Router: AbstractRouter {
+open class Router: AbstractRouter {
 
   /**
    CompatibilityMode
@@ -22,20 +22,20 @@ public class Router: AbstractRouter {
 
   public enum CompatibilityMode {
 
-    case None, IgnoreHost
+    case none, ignoreHost
 
-    private func processUrl(url: NSURL) -> NSURL {
+    fileprivate func processUrl(_ url: URL) -> URL {
       switch self {
-      case .None:
+      case .none:
         return url
-      case .IgnoreHost:
+      case .ignoreHost:
         //TODO: Implement
         return url
       }
     }
   }
 
-  private struct Entry {
+  fileprivate struct Entry {
 
     struct Item {
 
@@ -45,7 +45,7 @@ public class Router: AbstractRouter {
 
       init(pattern: String) {
         if pattern.hasPrefix(":") {
-          self.name = pattern.substringFromIndex(pattern.startIndex.advancedBy(1))
+          self.name = pattern.substring(from: pattern.characters.index(pattern.startIndex, offsetBy: 1))
           self.wildcard = true
         } else {
           self.name = pattern
@@ -59,31 +59,31 @@ public class Router: AbstractRouter {
 
     let action: RouterAction
 
-    init(pattern: String, action: RouterAction) {
+    init(pattern: String, action: @escaping RouterAction) {
       self.items = (pattern as NSString).pathComponents.map { v in Item(pattern: v) }
       self.action = action
     }
 
-    func execute(url: NSURL) -> Bool {
+    func execute(_ url: URL) -> Bool {
       //TODO: implement
       return false
     }
 
   }
 
-  private var routers = [AbstractRouter]()
+  fileprivate var routers = [AbstractRouter]()
 
-  private var entries = [Entry]()
+  fileprivate var entries = [Entry]()
 
   /// Default to .IgnoreHost
-  public var compatibilityMode = CompatibilityMode.IgnoreHost
+  open var compatibilityMode = CompatibilityMode.ignoreHost
 
   /**
    Append a router as subrouter
 
    - parameter router: subrouter
    */
-  public func appendRouter(router: AbstractRouter) {
+  open func appendRouter(_ router: AbstractRouter) {
     self.routers += router
   }
 
@@ -92,18 +92,18 @@ public class Router: AbstractRouter {
 
    - parameter router: subrouter
    */
-  public func prependRouter(router: AbstractRouter) {
-    self.routers.insert(router, atIndex: 0)
+  open func prependRouter(_ router: AbstractRouter) {
+    self.routers.insert(router, at: 0)
   }
 
-  public func routeUrl(url: NSURL) -> Bool {
+  open func routeUrl(_ url: URL) -> Bool {
     if !_selfRouteUrl(url) {
       return _subRouteUrl(url)
     }
     return true
   }
 
-  private func _selfRouteUrl(url: NSURL) -> Bool {
+  fileprivate func _selfRouteUrl(_ url: URL) -> Bool {
     let url = self.compatibilityMode.processUrl(url)
     for entry in self.entries {
       if entry.execute(url) {
@@ -113,7 +113,7 @@ public class Router: AbstractRouter {
     return false
   }
 
-  private func _subRouteUrl(url: NSURL) -> Bool {
+  fileprivate func _subRouteUrl(_ url: URL) -> Bool {
     for router in self.routers {
       if router.routeUrl(url) {
         return true
@@ -128,7 +128,7 @@ public class Router: AbstractRouter {
    - parameter pattern: pattern, support named component
    - parameter action:  action
    */
-  public func registerAction(pattern: String, action: RouterAction) {
+  open func registerAction(_ pattern: String, action: @escaping RouterAction) {
     self.entries << Entry(pattern: pattern, action: action)
   }
 

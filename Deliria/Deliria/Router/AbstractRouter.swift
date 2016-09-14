@@ -14,6 +14,6 @@ public protocol AbstractRouter {
 
    - returns: successfully handled
    */
-  func routeUrl(url: NSURL) -> Bool
+  func routeUrl(_ url: URL) -> Bool
 
 }

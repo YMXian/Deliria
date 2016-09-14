@@ -14,7 +14,7 @@ Add Append operator << for Set
 
 - returns: set
 */
-public func << <T: Hashable>(inout lhs: Set<T>, rhs: T) -> Set<T> {
+public func << <T: Hashable>(lhs: inout Set<T>, rhs: T) -> Set<T> {
   lhs.insert(rhs)
   return lhs
 }

@@ -8,8 +8,8 @@ import UIKit.UIApplication
 
 extension UIApplication: AbstractRouter {
 
-  public func routeUrl(url: NSURL) -> Bool {
-    return UIApplication.sharedApplication().routeUrl(url)
+  public func routeUrl(_ url: URL) -> Bool {
+    return UIApplication.shared.routeUrl(url)
   }
 
 }

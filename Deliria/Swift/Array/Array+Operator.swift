@@ -15,23 +15,25 @@ Alias for Array.append
 
 - returns: array with object appended
 */
-public func << <T>(inout lhs: [T], rhs: T) -> [T] {
+@discardableResult
+public func << <T>(lhs: inout [T], rhs: T) -> [T] {
   lhs.append(rhs)
   return lhs
 }
 
-public func +=<T>(inout lhs: [T], rhs: T) -> [T] {
+@discardableResult
+public func +=<T>(lhs: inout [T], rhs: T) -> [T] {
   return lhs << rhs
 }
 
-public func >><T: Equatable>(inout lhs: [T], rhs: T) -> [T] {
-  if let idx = lhs.indexOf(rhs) {
-    lhs.removeAtIndex(idx)
+public func >><T: Equatable>(lhs: inout [T], rhs: T) -> [T] {
+  if let idx = lhs.index(of: rhs) {
+    lhs.remove(at: idx)
   }
   return lhs
 }
 
-public func -=<T: Equatable>(inout lhs: [T], rhs: T) -> [T] {
+public func -=<T: Equatable>(lhs: inout [T], rhs: T) -> [T] {
   return lhs >> rhs
 }
 
@@ -43,9 +45,9 @@ public func -=<T: Equatable>(inout lhs: [T], rhs: T) -> [T] {
 
  - returns: new Array
  */
-public func * <T, I: UnsignedIntegerType>(lhs: [T], rhs: I) -> [T] {
+public func * <T>(lhs: [T], rhs: UInt64) -> [T] {
   var array = [T]()
-  rhs.times { _ in
+  for _ in 0 ..< rhs {
     array += lhs
   }
   return array
@@ -59,11 +61,11 @@ public func * <T, I: UnsignedIntegerType>(lhs: [T], rhs: I) -> [T] {
 
  - returns: lhs
  */
-public func *= <T, I: UnsignedIntegerType>(inout lhs: [T], rhs: I) -> [T] {
+public func *= <T>(lhs: inout [T], rhs: UInt64) -> [T] {
   if rhs == 0 {
     lhs.removeAll()
   } else {
-    (rhs - 1).times { _ in
+    for _ in 0 ..< (rhs - 1) {
       lhs += lhs
     }
   }

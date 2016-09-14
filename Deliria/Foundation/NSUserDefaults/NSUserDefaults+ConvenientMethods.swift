@@ -8,13 +8,13 @@
 
 import Foundation
 
-public extension NSUserDefaults {
+public extension UserDefaults {
 
-  public func setOrRemoveObject(object: AnyObject?, forKey key: String) {
+  public func setOrRemoveObject(_ object: AnyObject?, forKey key: String) {
     if let object = object {
-      self.setObject(object, forKey: key)
+      self.set(object, forKey: key)
     } else {
-      self.removeObjectForKey(key)
+      self.removeObject(forKey: key)
     }
   }
 

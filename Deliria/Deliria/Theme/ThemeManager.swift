@@ -10,13 +10,13 @@ import Foundation
 
 private var kThemeManagerThemeRegistryKey = 0
 
-public class ThemeManager {
+open class ThemeManager {
 
-  private struct $ {
+  fileprivate struct $ {
     static let sharedInstance = ThemeManager()
   }
 
-  public func of <T: UIView> (clazz: T.Type) -> ThemeRegistry<T> {
+  open func of <T: UIView> (_ clazz: T.Type) -> ThemeRegistry<T> {
     var registry = objc_getAssociatedObject(clazz, &kThemeManagerThemeRegistryKey) as? ThemeRegistry<T>
     if registry != nil { return registry! }
     registry = ThemeRegistry<T>()

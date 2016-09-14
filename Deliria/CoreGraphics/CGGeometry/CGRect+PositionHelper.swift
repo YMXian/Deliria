@@ -10,7 +10,7 @@ import CoreGraphics
 
 //  MARK: - Helper
 
-extension CGRect: ArrayLiteralConvertible {
+extension CGRect: ExpressibleByArrayLiteral {
 
   public var x: CGFloat {
     get {

@@ -28,14 +28,16 @@ extension UIImage {
   /// does this image has alpha channel
   public var hasAlpha: Bool {
     //  Get AlphaInfo
-    let alphaInfo = CGImageGetAlphaInfo(self.CGImage)
-    //  Switch
-    switch alphaInfo {
-    case .None, .NoneSkipFirst, .NoneSkipLast:
-      return false
-    default:
-      return true
+    if let alphaInfo = self.cgImage?.alphaInfo {
+      //  Switch
+      switch alphaInfo {
+      case .none, .noneSkipFirst, .noneSkipLast:
+        return false
+      default:
+        return true
+      }
     }
+    return false
   }
 
   /// create a new image with alpha channel
@@ -44,23 +46,23 @@ extension UIImage {
     if self.hasAlpha { return self }
 
     //  Get CGImage
-    if let srcImage = self.CGImage {
+    if let srcImage = self.cgImage {
 
       //  Get size
-      let width   = CGImageGetWidth(srcImage)
-      let height  = CGImageGetHeight(srcImage)
+      let width   = srcImage.width
+      let height  = srcImage.height
 
       //  Create options
-      let options = CGBitmapInfo.ByteOrderDefault.rawValue | CGImageAlphaInfo.PremultipliedFirst.rawValue
+      let options = CGBitmapInfo().rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue
       //  Create context
-      let context = CGBitmapContextCreate(nil, width, height, 8, 0, CGImageGetColorSpace(self.CGImage), options)
+      let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: (self.cgImage?.colorSpace!)!, bitmapInfo: options)
 
       //  Draw image
-      CGContextDrawImage(context, [0, 0, width.CGFloat, height.CGFloat], srcImage)
+      context?.draw(srcImage, in: [0, 0, width.CGFloat, height.CGFloat])
 
       //  Get new CGImage
-      if let imageRef = CGBitmapContextCreateImage(context) {
-        return UIImage(CGImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
+      if let imageRef = context?.makeImage() {
+        return UIImage(cgImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
       }
     }
 
@@ -75,14 +77,14 @@ extension UIImage {
 
    - returns: new image
    */
-  public func imageCropped(bounds: CGRect) -> UIImage {
+  public func imageCropped(_ bounds: CGRect) -> UIImage {
     //  Get CGImage
-    if let srcImage = self.CGImage {
+    if let srcImage = self.cgImage {
       //  Calculate target bounds
       let targetBounds = bounds * self.affineTransformToOrientationUp * self.scale
       //  Create cropped CGImage
-      if let imageRef = CGImageCreateWithImageInRect(srcImage, targetBounds) {
-        return UIImage(CGImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
+      if let imageRef = srcImage.cropping(to: targetBounds) {
+        return UIImage(cgImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
       }
     }
     return self
@@ -96,14 +98,14 @@ extension UIImage {
 
    - returns: scaled image
    */
-  public func imageScaled(scale: CGFloat, quality: CGInterpolationQuality = .High) -> UIImage {
+  public func imageScaled(_ scale: CGFloat, quality: CGInterpolationQuality = .high) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(self.size, !self.hasAlpha, scale)
     let context = UIGraphicsGetCurrentContext()
-    CGContextSetInterpolationQuality(context, quality)
-    self.drawInRect([0, 0, self.size.width, self.size.height])
+    context!.interpolationQuality = quality
+    self.draw(in: [0, 0, self.size.width, self.size.height])
     let newImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
-    return newImage
+    return newImage!
   }
 
   /**
@@ -115,7 +117,7 @@ extension UIImage {
 
    - returns: scaled image of self
    */
-  public func imageScaledAtMax(width: CGFloat, height: CGFloat, quality: CGInterpolationQuality = .High) -> UIImage {
+  public func imageScaledAtMax(_ width: CGFloat, height: CGFloat, quality: CGInterpolationQuality = .high) -> UIImage {
     let scale = min(width / self.size.width, height / self.size.height)
     if scale < 1 {
       return self.imageScaled(scale, quality: quality)
@@ -140,52 +142,52 @@ extension UIImage {
 
    - returns: new image
    */
-  public func imageTintedWith(color: UIColor = UIColor.grayColor()) -> UIImage {
+  public func imageTintedWith(_ color: UIColor = UIColor.gray) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
     let rect: CGRect = [0, 0, self.size.width, self.size.height]
     let context = UIGraphicsGetCurrentContext()
 
     //  Draw original image
-    self.drawInRect(rect, blendMode: .Normal, alpha: 1)
+    self.draw(in: rect, blendMode: .normal, alpha: 1)
 
     //  Tint
-    CGContextSetBlendMode(context, .Overlay)
+    context?.setBlendMode(.overlay)
     color.setFill()
-    CGContextFillRect(context, rect)
+    context?.fill(rect)
 
     //  Mask by alpha values of original image
-    self.drawInRect(rect, blendMode: .DestinationIn, alpha: 1)
+    self.draw(in: rect, blendMode: .destinationIn, alpha: 1)
 
     //  Create tintedImage
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
-    return image
+    return image!
   }
 
   /// Create a image grayed
   public var imageGrayed: UIImage {
 
     //  Get CGImage
-    if let srcImage = self.CGImage {
+    if let srcImage = self.cgImage {
 
       //  Get pixel size
-      let width   = CGImageGetWidth(srcImage)
-      let height  = CGImageGetHeight(srcImage)
+      let width   = srcImage.width
+      let height  = srcImage.height
 
       //  Grayscale color space
       let colorSpace = CGColorSpaceCreateDeviceGray()
 
       //  Context
-      let context = CGBitmapContextCreate(nil, width, height, 8, 0, colorSpace, CGImageAlphaInfo.None.rawValue)
+      let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: CGImageAlphaInfo.none.rawValue)
 
       //  Draw image
-      CGContextDrawImage(context, CGRectMake(0, 0, width.CGFloat, height.CGFloat), srcImage)
+      context?.draw(srcImage, in: CGRect(x: 0, y: 0, width: width.CGFloat, height: height.CGFloat))
 
       //  Get CGImage
-      if let outImage = CGBitmapContextCreateImage(context) {
+      if let outImage = context?.makeImage() {
 
         //  Create UIImage
-        return UIImage(CGImage: outImage, scale: self.scale, orientation: self.imageOrientation)
+        return UIImage(cgImage: outImage, scale: self.scale, orientation: self.imageOrientation)
       }
     }
 
@@ -196,41 +198,41 @@ extension UIImage {
   /// The CGAffineTransform to change underlying CGImage to OrientationUp
   public var affineTransformToOrientationUp: CGAffineTransform {
     //  Prepare a CGAffineTransform
-    var transform = CGAffineTransformIdentity
+    var transform = CGAffineTransform.identity
 
     //  Return CGAffineTransformIdentity if self is Up
-    if self.imageOrientation == .Up {
+    if self.imageOrientation == .up {
       return transform
     }
 
-    if let srcImage = self.CGImage {
+    if let srcImage = self.cgImage {
       //  Get CGImage size
-      let width   = CGImageGetWidth(srcImage)
-      let height  = CGImageGetHeight(srcImage)
+      let width   = srcImage.width
+      let height  = srcImage.height
 
       //  Calculate position and rotation transform
       switch self.imageOrientation {
-      case .Down, .DownMirrored:
-        transform = CGAffineTransformTranslate(transform, width.CGFloat, height.CGFloat)
-        transform = CGAffineTransformRotate(transform, M_PI.CGFloat)
-      case .Left, .LeftMirrored:
-        transform = CGAffineTransformTranslate(transform, width.CGFloat, 0)
-        transform = CGAffineTransformRotate(transform, M_PI_2.CGFloat)
-      case .Right, .RightMirrored:
-        transform = CGAffineTransformTranslate(transform, 0, height.CGFloat)
-        transform = CGAffineTransformRotate(transform, -M_PI_2.CGFloat)
+      case .down, .downMirrored:
+        transform = transform.translatedBy(x: width.CGFloat, y: height.CGFloat)
+        transform = transform.rotated(by: M_PI.CGFloat)
+      case .left, .leftMirrored:
+        transform = transform.translatedBy(x: width.CGFloat, y: 0)
+        transform = transform.rotated(by: M_PI_2.CGFloat)
+      case .right, .rightMirrored:
+        transform = transform.translatedBy(x: 0, y: height.CGFloat)
+        transform = transform.rotated(by: -M_PI_2.CGFloat)
       default:
         break
       }
 
       //  Calculate mirror transform
       switch self.imageOrientation {
-      case .UpMirrored, .DownMirrored:
-        transform = CGAffineTransformTranslate(transform, width.CGFloat, 0)
-        transform = CGAffineTransformScale(transform, -1, 1)
-      case .LeftMirrored, .RightMirrored:
-        transform = CGAffineTransformTranslate(transform, height.CGFloat, 0)
-        transform = CGAffineTransformScale(transform, -1, 1)
+      case .upMirrored, .downMirrored:
+        transform = transform.translatedBy(x: width.CGFloat, y: 0)
+        transform = transform.scaledBy(x: -1, y: 1)
+      case .leftMirrored, .rightMirrored:
+        transform = transform.translatedBy(x: height.CGFloat, y: 0)
+        transform = transform.scaledBy(x: -1, y: 1)
       default:
         break
       }
@@ -241,11 +243,11 @@ extension UIImage {
 
   /// Create a new image with orientation up
   public var imageWithOrientationFixed: UIImage {
-    if self.imageOrientation == .Up {
+    if self.imageOrientation == .up {
       return self
     }
 
-    if let srcImage = self.CGImage {
+    if let srcImage = self.cgImage {
 
       //  Extract pixel size with orientation
       let (width, height) = self.pixelSize
@@ -254,23 +256,23 @@ extension UIImage {
       let transform = self.affineTransformToOrientationUp
 
       //  Create bitmap context
-      let options = CGImageGetBitmapInfo(srcImage).rawValue | CGImageGetAlphaInfo(srcImage).rawValue
-      let ctx = CGBitmapContextCreate(nil, width, height, CGImageGetBitsPerComponent(srcImage), 0, CGImageGetColorSpace(srcImage), options)
+      let options = srcImage.bitmapInfo.rawValue | srcImage.alphaInfo.rawValue
+      let ctx = CGContext(data: nil, width: width, height: height, bitsPerComponent: srcImage.bitsPerComponent, bytesPerRow: 0, space: srcImage.colorSpace!, bitmapInfo: options)
 
       //  Apply transform
-      CGContextConcatCTM(ctx, transform)
+      ctx?.concatenate(transform)
 
       //  Draw image
       switch self.imageOrientation {
-      case .Left, .LeftMirrored, .Right, .RightMirrored:
-        CGContextDrawImage(ctx, CGRectMake(0, 0, height.CGFloat, width.CGFloat), srcImage)
+      case .left, .leftMirrored, .right, .rightMirrored:
+        ctx?.draw(srcImage, in: CGRect(x: 0, y: 0, width: height.CGFloat, height: width.CGFloat))
       default:
-        CGContextDrawImage(ctx, CGRectMake(0, 0, width.CGFloat, height.CGFloat), srcImage)
+        ctx?.draw(srcImage, in: CGRect(x: 0, y: 0, width: width.CGFloat, height: height.CGFloat))
       }
 
       //  Create result image
-      if let imageRef = CGBitmapContextCreateImage(ctx) {
-        return UIImage(CGImage: imageRef, scale: self.scale, orientation: .Up)
+      if let imageRef = ctx?.makeImage() {
+        return UIImage(cgImage: imageRef, scale: self.scale, orientation: .up)
       }
 
     }

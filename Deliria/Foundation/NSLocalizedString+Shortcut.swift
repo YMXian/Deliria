@@ -16,6 +16,6 @@ import Foundation
 
  - returns: localized string
  */
-public func L(key: String, comment: String = "") -> String {
+public func L(_ key: String, comment: String = "") -> String {
   return NSLocalizedString(key, comment: comment)
 }
