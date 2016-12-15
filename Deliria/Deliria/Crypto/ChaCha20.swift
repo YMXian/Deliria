@@ -13,9 +13,10 @@ final public class ChaCha20: BlockCipher {
     }
 
     public static let blockSize = 64 // 512 / 8
-    fileprivate let context: Context
 
-    private struct Context {
+    public let context: Context
+
+    public struct Context {
         var input = Array<UInt32>(repeating: 0, count: 16)
 
         init(key: Array<UInt8>, iv: Array<UInt8>) throws {
